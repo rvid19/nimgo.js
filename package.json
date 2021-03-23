@@ -1,0 +1,32 @@
+{
+  "name": "nimgo",
+  "version": "1.0.0",
+  "description": "A lightweight web javascript library",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./src/test.js",
+    "build": "minify ./src/index.js --out-file ./build/nimgo.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvid19/nimgo.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "web",
+    "html"
+  ],
+  "author": "rvid19",
+  "contributors": [
+    "ldig20"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rvid19/nimgo.js/issues"
+  },
+  "homepage": "https://github.com/rvid19/nimgo.js#readme",
+  "devDependencies": {
+    "babel-minify": "^0.5.1",
+    "open": "^8.0.4"
+  }
+}
