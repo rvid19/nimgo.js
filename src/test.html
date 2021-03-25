@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./index.js"></script>
     <title>nimgo.js demo</title>
+    <script>
+        nimgo(["scope", "http"], (scope) => {
+            scope.color  = "red";
+            scope.bg     = "#ddd";
+        });
+    </script>
 </head>
 <body>
-    <h1>hello world!</h1>
+    <h1 *style="background: {{bg}}; color: {{color}}; padding: 10px; text-align: center;">Hello world! This text has dynamic attributes!</h1>
 </body>
 </html>
