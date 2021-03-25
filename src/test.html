@@ -7,7 +7,7 @@
     <script src="./index.js"></script>
     <title>nimgo.js demo</title>
     <script>
-        nimgo(["scope", "http"], (scope) => {
+        nimgo(["scope"], (scope) => {
             scope.color  = "red";
             scope.bg     = "#ddd";
         });
@@ -15,5 +15,6 @@
 </head>
 <body>
     <h1 *style="background: {{bg}}; color: {{color}}; padding: 10px; text-align: center;">Hello world! This text has dynamic attributes!</h1>
+    <input ni-value="color">
 </body>
 </html>

@@ -32,6 +32,10 @@ window.onload = () => {
             for (const attr of list) {
                 elem[attr.nodeName.substring(1)] = replace(attr.nodeValue);
             }
+            var value = elem.getAttribute("ni-value");
+            if (value) {
+                nd.scope[value] = elem.value;
+            }
         }
     }, 10);
 }
