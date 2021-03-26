@@ -1,0 +1,10 @@
+/*This file is the stylesheet for test.html*/
+h1 {
+    padding: 10px; 
+    text-align: center;
+}
+input {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

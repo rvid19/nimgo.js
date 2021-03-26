@@ -10,7 +10,8 @@ function nq(query,all) {
 var nd = {
     scope: {},
     get http() {
-        console.warn("The http dependency currently doesn't work, but it should work in a future release.")
+        console.warn("The http dependency currently doesn't work, but it should work in a future release.");
+        return new Function();
     }
 };
 
@@ -30,17 +31,31 @@ window.onload = () => {
             .filter(a => a.nodeName.startsWith("*"));
 
             for (const attr of list) {
-                elem[attr.nodeName.substring(1)] = replace(attr.nodeValue);
+                elem[attr.nodeName.substring(1)] = r(attr.nodeValue);
             }
-            var value = elem.getAttribute("ni-value");
+            var value;
+            value = elem.getAttribute("ni-value");
             if (value) {
                 nd.scope[value] = elem.value;
+            }
+            value = elem.getAttribute("ni-bind");
+            if (value && elem.innerText != nd.scope[value]) {
+                elem.innerText = nd.scope[value] || "";
+            }
+            value = elem.getAttribute("ni-click");
+            if (value) {
+                elem.addEventListener("click", () => {
+                    with (nd.scope) {
+                        eval(value);
+                    }
+                });
+                elem.removeAttribute("ni-click");
             }
         }
     }, 10);
 }
 /*-----------------------------------------utils-----------------------------------------*/
-function replace(str) {
+function r(str) {
     for (const match of str.matchAll("{{[^{}]+}}")) {
         str = str.replace(
             match[0],

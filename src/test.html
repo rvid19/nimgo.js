@@ -1,3 +1,4 @@
+<!--This file is an example. run "npm test" to open it-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./index.js"></script>
+    <link rel="stylesheet" href="./test.css">
     <title>nimgo.js demo</title>
     <script>
         nimgo(["scope"], (scope) => {
-            scope.color  = "red";
-            scope.bg     = "#ddd";
+            scope.bg = "#ddd";
         });
     </script>
 </head>
-<body>
-    <h1 *style="background: {{bg}}; color: {{color}}; padding: 10px; text-align: center;">Hello world! This text has dynamic attributes!</h1>
-    <input ni-value="color">
+<body *style="background: {{bg}};">
+    <h1 *style="color: {{color}};">Enter a color in the input!</h1>
+    <h2>color: <span ni-bind="color"/></h2>
+    <input ni-value="color"/>
+    <button ni-click="bg = 'red';">press to change background color!</button>
 </body>
 </html>
