@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/rvid19/nimgo.js#readme",
   "devDependencies": {
-    "babel-minify": "^0.5.1",
+    "babel-minify": "^0.5.2",
     "open": "^8.0.5"
   }
 }
